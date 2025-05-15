@@ -1,7 +1,8 @@
 import axios from 'axios'
 import type { Product } from '../types/product'
+const BASE = import.meta.env.VITE_API_BASE
 
-const API_URL = 'http://localhost:3000/api/v1/products'
+const API_URL = `${BASE}/products`
 
 export const getProducts = () => axios.get<Product[]>(API_URL)
 
@@ -17,6 +18,6 @@ export const createProduct = async (
 export const updateProduct = (
   id: number,
   data: Omit<Product, 'id' | 'createdAt'>
-) => axios.put(`${API_URL}/${id}`, data)
+) => axios.patch(`${API_URL}/${id}`, data)
 
 export const deleteProduct = (id: number) => axios.delete(`${API_URL}/${id}`)

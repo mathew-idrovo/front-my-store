@@ -72,6 +72,7 @@ export default function ProductCard({
         <Modal
           title="Editar Producto"
           open={showEditModal}
+          describe="Edita tu producto"
           onOpenChange={setShowEditModal}
         >
           <ProductForm
